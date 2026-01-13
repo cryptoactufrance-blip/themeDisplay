@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Palette de Thèmes Design</title>
+    <style>
+        /* RESET & BASE */
+        * { box-sizing: border-box; }
+        body { margin: 0; padding: 40px; background: #e0e0e0; font-family: sans-serif; }
+        h1 { text-align: center; margin-bottom: 40px; color: #333; }
+        
+        /* LAYOUT GRILLE */
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+        }
+
+        /* STRUCTURE COMMUNE DES CARTES */
+        .theme-card {
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            min-height: 500px;
+        }
+        
+        .placeholder-img {
+            width: 100%;
+            height: 120px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+        }
+
+        table { width: 100%; border-collapse: collapse; margin: 10px 0; }
+        th, td { padding: 8px; text-align: left; }
+
+        /* --- 1. BRUTALIST MINIMALISM --- */
+        .brutalist {
+            background: #fff;
+            border: 3px solid #000;
+            font-family: "Courier New", Courier, monospace;
+            box-shadow: 10px 10px 0px #000;
+        }
+        .brutalist h2 { text-transform: uppercase; font-size: 1.5rem; border-bottom: 3px solid #000; padding-bottom: 10px; margin: 0; }
+        .brutalist .placeholder-img { background: #ccc; border: 3px solid #000; font-weight: bold; }
+        .brutalist table, .brutalist th, .brutalist td { border: 2px solid #000; }
+        .brutalist th { background: #000; color: #fff; }
+
+        /* --- 2. NEO-EDITORIAL CLEAN --- */
+        .editorial {
+            background: #faf9f6;
+            font-family: "Georgia", serif;
+            color: #333;
+            border: 1px solid #ddd;
+        }
+        .editorial h2 { font-family: "Arial", sans-serif; font-weight: 300; font-size: 2rem; letter-spacing: -1px; font-style: italic; }
+        .editorial .placeholder-img { background: #e6e6e6; border-radius: 4px; }
+        .editorial table { border-top: 1px solid #333; border-bottom: 1px solid #333; }
+        .editorial th { font-weight: normal; text-transform: uppercase; font-size: 0.7rem; letter-spacing: 2px; }
+
+        /* --- 3. DARK TECH MONOLITH --- */
+        .dark-tech {
+            background: #0a0a0a;
+            color: #00ff41;
+            font-family: "Consolas", "Monaco", monospace;
+            border: 1px solid #333;
+        }
+        .dark-tech h2 { text-transform: uppercase; letter-spacing: 2px; text-shadow: 0 0 5px #00ff41; }
+        .dark-tech .placeholder-img { border: 1px dashed #00ff41; background: #001a05; color: #00ff41; }
+        .dark-tech table { border: 1px solid #333; }
+        .dark-tech th { border-bottom: 1px solid #00ff41; }
+        .dark-tech td { border-right: 1px solid #1a1a1a; }
+
+        /* --- 4. RAW GRID AESTHETIC --- */
+        .raw-grid {
+            background: #f0f0f0;
+            font-family: Helvetica, Arial, sans-serif;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2px;
+            background-color: #000; /* Crée les lignes de la grille */
+            border: 2px solid #000;
+            padding: 0;
+        }
+        .raw-grid > * { background: #fff; margin: 0; padding: 15px; }
+        .raw-grid h2 { grid-column: span 2; font-size: 1.2rem; margin: 0; display: flex; align-items: center; }
+        .raw-grid .text-content { grid-column: span 1; font-size: 0.8rem; }
+        .raw-grid .placeholder-img { grid-column: span 1; height: auto; background: #ddd; }
+        .raw-grid table { grid-column: span 2; width: 100%; border: none; margin: 0; }
+        .raw-grid th { background: #eee; }
+
+        /* --- 5. MODERN SWISS BRUTAL --- */
+        .swiss {
+            background: #fff;
+            color: #000;
+            font-family: "Arial Black", "Helvetica", sans-serif;
+        }
+        .swiss h2 { font-size: 2.5rem; line-height: 0.9; letter-spacing: -2px; margin-bottom: 20px; color: #ff3b30; }
+        .swiss .placeholder-img { height: 150px; background: #000; color: #fff; transform: rotate(-1deg); }
+        .swiss p { font-weight: bold; font-size: 0.9rem; }
+        .swiss table { border-top: 5px solid #000; }
+        .swiss th { text-transform: lowercase; font-size: 1.2rem; }
+
+        /* --- 6. SOFT INDUSTRIAL UI --- */
+        .industrial {
+            background: #e3e4e6;
+            color: #4a5568;
+            font-family: system-ui, sans-serif;
+            border-radius: 8px;
+            box-shadow: inset 0 0 0 1px #cbd5e0;
+        }
+        .industrial h2 { font-size: 1rem; text-transform: uppercase; background: #cbd5e0; padding: 10px; margin: -20px -20px 20px -20px; border-radius: 8px 8px 0 0; color: #2d3748; letter-spacing: 1px; }
+        .industrial .placeholder-img { background: #cbd5e0; border-radius: 4px; color: #718096; }
+        .industrial table { background: #fff; border-radius: 4px; overflow: hidden; }
+        .industrial th { background: #edf2f7; font-size: 0.8rem; }
+
+        /* --- 7. HIGH-CONTRAST TYPOGRAPHIC --- */
+        .high-contrast {
+            background: #000;
+            color: #fff;
+            font-family: "Impact", sans-serif;
+            border: 5px solid #fff;
+        }
+        .high-contrast h2 { font-size: 3rem; text-transform: uppercase; line-height: 1; margin-bottom: 10px; border-bottom: 2px solid #fff; }
+        .high-contrast p { font-family: "Arial", sans-serif; font-size: 1.1rem; line-height: 1.4; }
+        .high-contrast .placeholder-img { background: #fff; color: #000; font-weight: bold; font-size: 1.5rem; }
+        .high-contrast table { border: 2px solid #fff; margin-top: auto; }
+        .high-contrast th { border-bottom: 2px solid #fff; text-transform: uppercase; }
+
+        /* --- 8. MONOCHROME AUTHORITY --- */
+        .authority {
+            background: #1a202c; /* Deep Slate */
+            color: #cbd5e0;
+            font-family: "Verdana", sans-serif;
+            border-top: 4px solid #4299e1; /* Blue accent */
+        }
+        .authority h2 { color: #fff; font-size: 1.2rem; font-weight: normal; margin-bottom: 30px; }
+        .authority .placeholder-img { background: #2d3748; height: 100px; }
+        .authority table { border: 1px solid #4a5568; }
+        .authority th { background: #2d3748; color: #fff; }
+        .authority td { border-bottom: 1px solid #2d3748; }
+
+        /* --- 9. CALM LUXURY DIGITAL --- */
+        .luxury {
+            background: #f4f1ea; /* Warm beige */
+            color: #4a4036;
+            font-family: "Times New Roman", serif;
+            text-align: center;
+        }
+        .luxury h2 { font-weight: normal; font-size: 1.8rem; letter-spacing: 2px; text-transform: uppercase; margin-top: 10px; }
+        .luxury p { font-style: italic; color: #7d7063; }
+        .luxury .placeholder-img { background: #e0d8cc; border-radius: 50% 50% 0 0; height: 140px; margin-bottom: 20px; }
+        .luxury table { margin-top: 20px; font-size: 0.9rem; border-top: 1px solid #bfaea0; }
+        .luxury th { text-align: center; font-weight: normal; color: #9c8c7e; padding-top: 15px; }
+        .luxury td { text-align: center; }
+
+        /* --- 10. FUNCTIONAL NO-FLUFF --- */
+        .functional {
+            background: #fff;
+            color: #000;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            border: 1px solid #ccc;
+        }
+        .functional h2 { font-size: 1.2rem; font-weight: 600; color: #0056b3; margin-bottom: 10px; }
+        .functional .placeholder-img { background: #eee; height: 100px; border: 1px solid #ddd; }
+        .functional p { font-size: 14px; line-height: 1.5; color: #333; }
+        .functional table { font-size: 13px; border: 1px solid #ddd; }
+        .functional th { background: #f8f9fa; border-bottom: 2px solid #dee2e6; }
+        .functional td { border-bottom: 1px solid #eee; }
+
+    </style>
+</head>
+<body>
+
+    <h1>Démonstration des Thèmes</h1>
+    <div class="grid-container">
+
+        <div class="theme-card brutalist">
+            <h2>Brutalist Minimalism</h2>
+            <div class="placeholder-img">IMG_RAW_01</div>
+            <p>Une esthétique crue. Pas de rondeurs. Des bordures épaisses. La structure HTML est mise à nu volontairement.</p>
+            <table>
+                <tr><th>Métrique</th><th>Valeur</th></tr>
+                <tr><td>Vitesse</td><td>100%</td></tr>
+                <tr><td>Style</td><td>Raw</td></tr>
+            </table>
+        </div>
+
+        <div class="theme-card editorial">
+            <h2>Neo-Editorial Clean</h2>
+            <div class="placeholder-img">Visuel Élégant</div>
+            <p>L'espace blanc est roi. Typographie Serif pour les titres, Sans-Serif pour le corps. Une mise en page de magazine.</p>
+            <table>
+                <tr><th>Catégorie</th><th>Détail</th></tr>
+                <tr><td>Police</td><td>Serif</td></tr>
+                <tr><td>Rendu</td><td>Clean</td></tr>
+            </table>
+        </div>
+
+        <div class="theme-card dark-tech">
+            <h2>Dark Tech Monolith</h2>
+            <div class="placeholder-img">System_Image.png</div>
+            <p>Ambiance terminal. Fond charbon ou noir profond. Accents néon (vert ou cyan). Polices monospace.</p>
+            <table>
+                <tr><th>SYSTEM</th><th>STATUS</th></tr>
+                <tr><td>Core</td><td>Online</td></tr>
+                <tr><td>Visual</td><td>Dark</td></tr>
+            </table>
+        </div>
+
+        <div class="theme-card raw-grid">
+            <h2>Raw Grid Aesthetic</h2>
+            <div class="text-content">
+                <p>La grille n'est pas cachée, elle est le design. Tout est compartimenté de manière stricte et visible.</p>
+            </div>
+            <div class="placeholder-img">Grid_Img</div>
+            <table>
+                <tr><th>Module A</th><th>Module B</th></tr>
+                <tr><td>Data 01</td><td>Data 02</td></tr>
+            </table>
+        </div>
+
+        <div class="theme-card swiss">
+            <h2>Modern Swiss Brutal</h2>
+            <p>Helvetica Bold. Grandes tailles. Asymétrie contrôlée. Souvent du rouge et du noir sur fond blanc.</p>
+            <div class="placeholder-img">SWISS DESIGN</div>
+            <table>
+                <tr><th>Key</th><th>Value</th></tr>
+                <tr><td>Grid</td><td>Tight</td></tr>
+                <tr><td>Type</td><td>Bold</td></tr>
+            </table>
+        </div>
+
+        <div class="theme-card industrial">
+            <h2>Soft Industrial UI</h2>
+            <div class="placeholder-img">Component 42</div>
+            <p>Inspiré des tableaux de bord techniques mais adouci. Gris métalliques, coins légèrement arrondis, fonctionnel.</p>
+            <table>
+                <tr><th>Paramètre</th><th>État</th></tr>
+                <tr><td>Usine</td><td>Actif</td></tr>
+                <tr><td>UI</td><td>Soft</td></tr>
+            </table>
+        </div>
+
+        <div class="theme-card high-contrast">
+            <h2>High-Contrast Typo</h2>
+            <p>Impact visuel maximal. Noir et blanc pur. La typographie devient l'image principale.</p>
+            <div class="placeholder-img">LOUD</div>
+            <table>
+                <tr><th>CONTRASTE</th><th>MAX</th></tr>
+                <tr><td>Noir</td><td>Blanc</td></tr>
+            </table>
+        </div>
+
+        <div class="theme-card authority">
+            <h2>Monochrome Authority</h2>
+            <div class="placeholder-img">Secure Asset</div>
+            <p>Sérieux, institutionnel. Une seule teinte (souvent bleu ardoise) déclinée. Inspire la confiance.</p>
+            <table>
+                <tr><th>Entité</th><th>Niveau</th></tr>
+                <tr><td>Sécurité</td><td>Haute</td></tr>
+                <tr><td>Ton</td><td>Froid</td></tr>
+            </table>
+        </div>
+
+        <div class="theme-card luxury">
+            <h2>Calm Luxury Digital</h2>
+            <div class="placeholder-img">Silk Texture</div>
+            <p>Tons chauds (beige, taupe). Sérif élégant. Minimalisme chaleureux. Une sensation de "silence" visuel.</p>
+            <table>
+                <tr><th>Collection</th><th>Saison</th></tr>
+                <tr><td>Essence</td><td>Hiver</td></tr>
+            </table>
+        </div>
+
+        <div class="theme-card functional">
+            <h2>Functional No-Fluff</h2>
+            <p>Design utilitaire. Comme Wikipédia ou Craigslist, mais modernisé. Lisibilité absolue, zéro décoration inutile.</p>
+            <table>
+                <tr><th>Item</th><th>Description</th></tr>
+                <tr><td>Focus</td><td>Data</td></tr>
+                <tr><td>Decor</td><td>None</td></tr>
+            </table>
+            <div class="placeholder-img">Data_Graph</div>
+        </div>
+
+    </div>
+</body>
+</html>
